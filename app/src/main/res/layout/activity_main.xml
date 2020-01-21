@@ -15,9 +15,9 @@
         android:layout_marginEnd="32dp"
         android:ems="10"
         android:hint="user id"
-        android:paddingLeft="10dp"
+        android:paddingLeft="40dp"
         android:elevation="2dp"
-        android:background="@color/colorWhite"
+        android:background="@drawable/edittext_bg"
         android:shadowRadius="2"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +34,7 @@
         android:ems="10"
         android:paddingLeft="10dp"
         android:elevation="2dp"
-        android:background="@color/colorWhite"
+        android:background="@drawable/edittext_bg"
         android:hint="password"
         android:shadowRadius="2"
         android:inputType="textPassword"
@@ -50,7 +50,7 @@
         android:layout_marginStart="45dp"
         android:layout_marginTop="80dp"
         android:layout_marginEnd="45dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="@drawable/btn_gradiant"
         android:elevation="5dp"
         android:text="LOGIN"
         android:textColor="@color/colorWhite"
@@ -69,4 +69,18 @@
         app:layout_constraintEnd_toEndOf="@+id/button"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/button" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/editText1"
+        app:layout_constraintStart_toStartOf="@+id/editText1"
+        app:layout_constraintTop_toTopOf="@+id/editText1"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_account_box_24dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
