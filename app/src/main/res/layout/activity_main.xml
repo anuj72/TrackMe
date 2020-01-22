@@ -14,7 +14,7 @@
         android:layout_marginTop="188dp"
         android:layout_marginEnd="32dp"
         android:ems="10"
-        android:hint="user id"
+        android:hint="email id"
         android:paddingLeft="40dp"
         android:elevation="2dp"
         android:background="@drawable/edittext_bg"
@@ -32,8 +32,8 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:ems="10"
-        android:paddingLeft="10dp"
         android:elevation="2dp"
+        android:paddingLeft="40dp"
         android:background="@drawable/edittext_bg"
         android:hint="password"
         android:shadowRadius="2"
@@ -83,4 +83,42 @@
         app:layout_constraintTop_toTopOf="@+id/editText1"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_account_box_24dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:elevation="10dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/editText2"
+        app:layout_constraintStart_toStartOf="@+id/editText2"
+        app:layout_constraintTop_toTopOf="@+id/editText2"
+        app:srcCompat="@drawable/ic_lock_24dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:fontFamily=""
+        android:text="Have'nt Account?"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.402"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Sign Up"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
