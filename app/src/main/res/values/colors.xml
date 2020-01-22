@@ -18,4 +18,5 @@
     <color name="my_app_color_on_background">#D81B60</color>
     <color name="my_app_color_on_error">#D81B60</color>
     <color name="my_app_color_on_surface">#000</color>
+    <color name="colorBlack">#000000</color>
 </resources>
