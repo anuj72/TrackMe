@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun logIn(view: View) {
-        intent = Intent(applicationContext, Main2Activity::class.java)
+        intent = Intent(applicationContext, MapActivity::class.java)
         startActivity(intent)
     }
 }

@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">TrackMe</string>
     <string name="google_maps_key">AIzaSyD_p8E2Xswq2o8QjYrmOWWMe71uO2BZFl0</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
