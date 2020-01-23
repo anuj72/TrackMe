@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/login"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
@@ -53,13 +54,13 @@
         android:id="@+id/button"
         android:layout_width="0dp"
         android:layout_height="45dp"
-        android:layout_marginStart="45dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="72dp"
-        android:layout_marginEnd="45dp"
+        android:layout_marginEnd="50dp"
         android:background="@drawable/btn_gradiant"
         android:elevation="5dp"
-        android:text="LOGIN"
         android:onClick="logIn"
+        android:text="LOGIN"
         android:textColor="@color/colorWhite"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -67,12 +68,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 
-    <com.google.android.gms.common.SignInButton
+    <Button
         android:id="@+id/sign_in_button"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="49dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="16dp"
+        android:background="@color/colorBlack"
+        android:onClick="GooglebtnClick"
         android:layout_marginEnd="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -102,4 +105,15 @@
         android:textColor="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView" />
+
+    <ProgressBar
+        android:id="@+id/progressBar31"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="47dp"
+        android:layout_height="44dp"
+        android:visibility="invisible"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
