@@ -4,31 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Main2Activity">
+    tools:context=".MapActivity">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="300dp"
+        android:layout_height="wrap_content"
+        android:elevation="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
+        android:visibility="invisible"
         android:layout_height="match_parent">
 
-        <!-- Other components and views -->
-        <com.google.android.gms.maps.MapView
-            android:id="@+id/mapView"
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:map="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/mapd"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_anchor="@+id/mapView"
-            app:layout_anchorGravity="top|center" />
+            android:layout_marginBottom="55dp"
+            tools:context=".MapsActivity" />
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bar"
+            style="@style/Widget.MaterialComponents.BottomAppBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.BottomAppBar"
             android:layout_gravity="bottom"
+            android:backgroundTint="@color/my_app_primary_color"
             app:fabAlignmentMode="end"
             app:fabAnimationMode="slide"
             app:fabCradleRoundedCornerRadius="15dp"
-            android:backgroundTint="@color/my_app_primary_color"
-            app:navigationIcon="@drawable/ic_menu_black_24dp"/>
+            app:navigationIcon="@drawable/ic_menu_black_24dp" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
@@ -36,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_menu_black_24dp"
-            app:layout_anchor="@id/bar"/>
+            app:layout_anchor="@id/bar" />
 
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
