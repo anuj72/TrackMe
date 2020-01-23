@@ -58,6 +58,7 @@
         android:background="@drawable/btn_gradiant"
         android:elevation="5dp"
         android:text="LOGIN"
+        android:onClick="logIn"
         android:textColor="@color/colorWhite"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
