@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentActivity
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.android.synthetic.main.activity_map.*
@@ -26,7 +26,9 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
             //doSomethingHere()
 
             val sydney = LatLng((17.453791).toDouble(), 78.553726)
-            mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+
+            mMap.addMarker(MarkerOptions().position(sydney).title("HOME")).setIcon(
+                BitmapDescriptorFactory.fromResource(R.drawable.car))
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney,18F))
             coordinatorLayout.visibility=View.VISIBLE
             progressBar.visibility=View.INVISIBLE

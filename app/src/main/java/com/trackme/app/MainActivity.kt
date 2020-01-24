@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         // Configure Google Sign In
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
@@ -32,12 +33,23 @@ class MainActivity : AppCompatActivity() {
             .build()
         googleSignInClient = GoogleSignIn.getClient(this, gso)
         auth = FirebaseAuth.getInstance()
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user != null) {
+            var intent:Intent= Intent(applicationContext,MapActivity::class.java)
+            intent.putExtra("email",user.email)
+            intent.putExtra("uid",user.uid)
+            intent.putExtra("personPhoto",user.photoUrl)
+            intent.putExtra("name",user.displayName)
+            intent.putExtra("mob",user.phoneNumber)
+            Log.v("sssss",user.email)
+            startActivity(intent)
+            finish()
+        } else {
+            // No user is signed in
+        }
     }
 
-    fun logIn(view: View) {
-        intent = Intent(applicationContext, MapActivity::class.java)
-        startActivity(intent)
-    }
+
 
     fun GooglebtnClick(view: View) {
         signIn()
