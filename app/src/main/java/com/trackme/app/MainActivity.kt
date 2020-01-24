@@ -52,8 +52,10 @@ class MainActivity : AppCompatActivity() {
 
     fun logIn(view: View) {
 
-        val email: String = textInputLayout.toString().trim()
-        val password: String = textInputLayout2.toString().trim()
+        val email: String = email.text.toString()
+        val password: String = password.text.toString()
+
+        Log.v("sssssssssss", email + "    " + password)
 
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this,
