@@ -1,21 +1,24 @@
 package com.trackme.app
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -32,16 +35,47 @@ class MainActivity : AppCompatActivity() {
             .build()
         googleSignInClient = GoogleSignIn.getClient(this, gso)
         auth = FirebaseAuth.getInstance()
+
+        sign_in_button.setOnClickListener {
+            signIn()
+            progressBar31.setVisibility(View.VISIBLE)
+        }
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser: FirebaseUser? = auth.currentUser
+        updateUI(currentUser, null)
     }
 
     fun logIn(view: View) {
-        intent = Intent(applicationContext, MapActivity::class.java)
-        startActivity(intent)
-    }
 
-    fun GooglebtnClick(view: View) {
-        signIn()
-        progressBar31.setVisibility(View.VISIBLE)
+        val email: String = textInputLayout.toString().trim()
+        val password: String = textInputLayout2.toString().trim()
+
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this,
+                OnCompleteListener<AuthResult?> { task ->
+                    if (task.isSuccessful) { // Sign in success, update UI with the signed-in user's information
+                        Log.d("email auth", "createUserWithEmail:success")
+                        val user: FirebaseUser? = auth.currentUser
+                        updateUI(user, null)
+                    } else { // If sign in fails, display a message to the user.
+                        Log.w(
+                            "email auth",
+                            "createUserWithEmail:failure",
+                            task.exception
+                        )
+                        Toast.makeText(
+                            this, "Authentication failed.",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        updateUI(null, null)
+                    }
+                    // ...
+                })
     }
 
     private fun signIn() {
@@ -99,13 +133,13 @@ class MainActivity : AppCompatActivity() {
 
                 // [START_EXCLUDE]
                 //hideProgressDialog()
-                progressBar31.setVisibility(View.INVISIBLE)
+                progressBar31.visibility = View.INVISIBLE
                 // [END_EXCLUDE]
             }
     }
 
     private fun updateUI(user: FirebaseUser?, status: Int?) {
-        progressBar31.setVisibility(View.INVISIBLE)
+        progressBar31.visibility = View.INVISIBLE
         if (user != null) {
             var intent:Intent= Intent(applicationContext,MapActivity::class.java)
             intent.putExtra("email",user.email)

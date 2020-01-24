@@ -11,6 +11,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_map.*
 
 class MapActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -31,6 +32,10 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
             coordinatorLayout.visibility=View.VISIBLE
             progressBar.visibility=View.INVISIBLE
         }, 500)
+
+        fab.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+        }
 
     }
 
