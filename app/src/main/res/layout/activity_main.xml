@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:id="@+id/login"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
@@ -24,7 +24,9 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email"
             android:layout_width="match_parent"
+            android:inputType="textEmailAddress"
             android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -44,6 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password"
             android:layout_width="match_parent"
             android:inputType="textPassword"
             android:layout_height="wrap_content" />
@@ -60,7 +63,7 @@
         android:background="@drawable/btn_gradiant"
         android:elevation="5dp"
         android:onClick="logIn"
-        android:text="LOGIN"
+        android:text="@string/login"
         android:textColor="@color/colorWhite"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,14 +71,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 
-    <Button
+    <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
         android:layout_width="0dp"
         android:layout_height="49dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="16dp"
-        android:background="@color/colorBlack"
-        android:onClick="GooglebtnClick"
         android:layout_marginEnd="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
